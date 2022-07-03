@@ -12,6 +12,15 @@ const Navigation = () => {
       </NavLink>
       <NavLink
       exact
+        to="/news"
+        className={({ isActive }) => (isActive ? "nav-active" : undefined)}
+      >
+        
+        News
+      </NavLink>
+
+      <NavLink
+      exact
         to="/about"
         className={({ isActive }) => (isActive ? "nav-active" : undefined)}
       >

@@ -48,11 +48,11 @@ const Countries = () => {
         {radios.map((radio) => {
           return (
             <li key={radio}>
-              <input
+              <input 
                 type="radio"
                 value={radio}
                 id={radio}
-                checked={radio == selectedRadio}
+                checked={radio === selectedRadio}
                 onChange={(e) => setSelectedRadio(e.target.value)}
               />
               <label htmlFor={radio}>{radio}</label>
@@ -60,7 +60,7 @@ const Countries = () => {
           );
         })}
       </ul>
-      {selectedRadio && <button onClick={()=>setSelectedRadio('')}>Anuler le filtre</button>}
+      {selectedRadio && <button onClick={()=>setSelectedRadio('')}>Annuler le filtre</button>}
 
       <ul className="countries-list">
         {sortedData
