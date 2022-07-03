@@ -10,6 +10,7 @@ const News = () => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [error, setError] = useState(false);
+  const [articlesEditionStates, setArticlesEditionStates] = useState({});
 
   useEffect(() => {
     getData();
@@ -36,6 +37,7 @@ const News = () => {
           setError(false);
           setAuthor("");
           setContent("");
+          getData();
         });
     } else {
       setError(true);
@@ -46,10 +48,11 @@ const News = () => {
     <div className="news-container">
       <Navigation />
       <Logo />
-      <h1>News</h1>
+      {/* <h1>News</h1> */}
 
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
+          autoCorrect="false"
           value={author}
           type="text"
           onChange={(e) => setAuthor(e.target.value)}
@@ -62,15 +65,26 @@ const News = () => {
           placeholder="Message"
         ></textarea>
         {error && <p>Veuillez ecrire un minimum de 140caractères</p>}
-        <input type="submit" value="Envoyer" />
+        {/* <input type="submit" value="Envoyer" /> */}
+        <button type="submit">Envoyer</button>
       </form>
 
       <ul>
         {newsData
           .sort((a, b) => b.date - a.date)
-          .map((article) => (
-            <Article func = {getData} key={article.id} article={article} />
-          ))}
+          .map((article) => {
+            return (
+              <Article
+                editionStates={[
+                  articlesEditionStates,
+                  setArticlesEditionStates,
+                ]}
+                func={getData}
+                key={article.id}
+                article={article}
+              />
+            );
+          })}
       </ul>
     </div>
   );

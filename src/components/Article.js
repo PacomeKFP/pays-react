@@ -19,8 +19,9 @@ const Article = (props) => {
     return newDate;
   };
 
+  
+
   const handleEdit = () => {
-    
     const data = {
       author: article.author,
       content: editedContent ? editedContent : article.content,
@@ -43,16 +44,17 @@ const Article = (props) => {
         <h3>{article.author}</h3>
         <em>Posté le {dateParser(article.date)}</em>
       </div>
-
-      {isEditing ? (
-        <textarea
-          onChange={(e) => setEditedContent(e.target.value)}
-          autoFocus
-          defaultValue={article.content}
-        ></textarea>
-      ) : (
-        <p>{article.content} </p>
-      )}
+      <div className="card-content">
+        {isEditing ? (
+          <textarea
+            onChange={(e) => setEditedContent(e.target.value)}
+            autoFocus
+            defaultValue={article.content}
+          ></textarea>
+        ) : (
+          <p>{article.content} </p>
+        )}
+      </div>
 
       <div className="btn-container">
         {isEditing ? (
@@ -61,7 +63,20 @@ const Article = (props) => {
           <button onClick={() => setIsEditing(true)}>Edit</button>
         )}
 
-        <DeleteArticle func = {props.func} id={article.id}/>
+        {isEditing ? (
+          <button
+            onClick={() =>
+              window.confirm("Do you want to cancel changes") &&
+              (setIsEditing(false), alert("Done"))
+            }
+          >
+            Cancel changes
+          </button>
+        ) : (
+          <></>
+        )}
+
+        <DeleteArticle func={props.func} id={article.id} />
       </div>
       <br />
     </div>

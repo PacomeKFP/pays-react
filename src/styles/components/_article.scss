@@ -1,0 +1,48 @@
+.article {
+    margin: 10px;
+    padding: 10px;
+    background: $color-3;
+    display: block;
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        line-height: 1.5rem;
+        border-bottom: 1px $color-1 solid;
+
+        em {
+            font-size: small;
+            font-family: cursive;
+        }
+        h3 {
+            font-family: cursive;
+            font-weight: 500;
+            padding-left: 5%;
+        }
+       
+    }
+
+
+    .card-content {
+        width: 100;
+        padding: 10px;
+
+        textarea {
+            width: 100%;
+            background: white;
+            border: 0px hidden $color-1;
+            height: 100px;
+            line-height: 1.25rem;
+            font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+            resize: none;
+            font-size: 1rem;
+
+            &:focus {
+                border: 20px hidden $color-1;
+            }
+        }
+
+        
+    }
+}

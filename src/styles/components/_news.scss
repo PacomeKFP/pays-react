@@ -1,0 +1,62 @@
+.news-container {
+    height: 30%;
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 3% 0;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        font-size: 1.25rem;
+
+        textarea {
+            border: 0 hidden white;
+            border-radius: 5px;
+            resize: none;
+            width: 60%;
+            height: 150px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1.25rem;
+            padding: 10px;
+            margin: 10px;
+        }
+        input {
+            border-radius: 3px;
+
+            &::text {
+                font-size: 1.25rem;
+                width: 500px;
+            }
+        }
+    }
+
+    button{
+        padding: 5px 10px;
+        margin: 10px;
+        font-size: medium;
+        border: 1px #1db9e4 solid ;
+        background: $color-1;
+        border-radius: 3px;
+        color: $color-3;
+        font-weight: 500;
+
+        &:hover{
+            background: white;
+            color: $color-1;
+            cursor: pointer;
+            border: 1px $color-2 solid;
+        }
+    }
+
+    input{
+        width: 60%;
+        font-size: large;
+        line-height: 1.5rem;
+        padding: 15px;
+        border: 0;
+        border-bottom: 1px $color-3 solid;
+        font-family: cursive;
+        text-decoration: none;
+    }
+}
